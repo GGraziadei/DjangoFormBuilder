@@ -1,0 +1,4 @@
+./dist
+./DjangoFormBuilder/__pycache__
+*.sqlite3
+*.xlsx
