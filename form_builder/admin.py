@@ -4,7 +4,7 @@ from django.http import HttpResponse
 from form_builder.utils import generate_excel_report
 from .models import Form, Field, FormSubmission
 
-class FieldInline(admin.StackedInline):  # Puoi anche utilizzare StackedInline se preferisci una visualizzazione impilata
+class FieldInline(admin.TabularInline):  # Puoi anche utilizzare StackedInline se preferisci una visualizzazione impilata
     model = Field
 
 @admin.register(Form)

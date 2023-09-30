@@ -13,12 +13,14 @@ class DynamicForm(forms.Form):
                 if field.field_type == 'text':
                     self.fields[field_name] = forms.CharField(
                         label=field.label,
-                        required=field.required
+                        required=field.required,
+                        widget=forms.widgets.TextInput,
                     )
                 elif field.field_type == 'number':
                     self.fields[field_name] = forms.FloatField(
                         label=field.label,
-                        required=field.required
+                        required=field.required,
+                        widget=forms.widgets.NumberInput,
                     )
                 elif field.field_type == 'multiselect':
                     choices = [(option, option) for option in field.get_choices()]

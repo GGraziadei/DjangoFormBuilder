@@ -20,11 +20,11 @@ def create_form(request, form_id):
             # Puoi gestire qui i dati del form inviati dal cliente e salvarli nel database
             # ad esempio, puoi creare un nuovo oggetto Model basato sui dati del form e salvarlo
             submission_data = {}
-        for field in form_fields:
-            field_name = field.label.lower().replace(" ", "_")
-            submission_data[field_name] = dynamic_form.cleaned_data[field_name]
-        json_data = json.dumps(submission_data, cls=DjangoJSONEncoder, default=custom_json_conversion)
-        FormSubmission.objects.create(form=form, submission_data=json_data)
+            for field in form_fields:
+                field_name = field.label.lower().replace(" ", "_")
+                submission_data[field_name] = dynamic_form.cleaned_data[field_name]
+            json_data = json.dumps(submission_data, cls=DjangoJSONEncoder, default=custom_json_conversion)
+            FormSubmission.objects.create(form=form, submission_data=json_data)
     else:
         dynamic_form = DynamicForm(form_fields=form_fields)
 
